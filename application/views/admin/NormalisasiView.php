@@ -22,7 +22,7 @@
 
             <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <div class="content-wrapper" style="height: 650px">
+            <div class="content-wrapper" style="min-height: 650px">
                 <section class="content-header">
                     <h1>
                         Dashboard
@@ -41,16 +41,16 @@
 
                             <p></p>
 
-                            <table id="normalisasi" class="table table-bordered table-hover table-striped">
+                            <table id="normalisasi" class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>NISN</th>
                                         <th>Nama</th>
-                                        <th>Nilai Psikotes</th>
-                                        <th>Nilai PSM Test</th>
-                                        <th>Nilai Angket Siswa</th>
-                                        <th>Nilai UN</th>
+                                        <th>Nilai Peminatan</th>
+                                        <th>Nilai Hasil Pendekatan Psikotest</th>
+                                        <th>Nilai Placementtes</th>
                                         <th>Nilai Raport</th>
+                                        <th>Nilai UN</th>
                                         <th>Total Nilai</th>
                                         <th>Rangking</th>
                                     </tr>
@@ -72,7 +72,7 @@
                                             <td><?php echo $n->total_nilai; ?></td>
                                             <td><?php echo $i; ?></td>
                                         </tr>
-<?php } ?>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -85,6 +85,6 @@
             <div class="control-sidebar-bg"></div>
         </div>
 
-<?php $this->load->view('admin/layout/JsLayout') ?>
+        <?php $this->load->view('admin/layout/JsLayout') ?>
     </body>
 </html>
