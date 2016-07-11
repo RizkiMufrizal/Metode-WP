@@ -74,15 +74,33 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">                            
-                <a href="#">
+                <a href="<?php echo base_url(); ?>index.php/admin">
                     <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController">
                     <i class="fa fa-files-o"></i>
-                    <span>Layout Options</span>
+                    <span>Data Calon Siswa</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController">
+                    <i class="fa fa-files-o"></i>
+                    <span>Data Kriteria</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="<?php echo base_url(); ?>index.php/admin/NilaiCalonSiswaController">
+                    <i class="fa fa-files-o"></i>
+                    <span>Data Nilai Calon Siswa</span>
+                </a>
+            </li>
+            <li class="treeview">
+                <a href="<?php echo base_url(); ?>index.php/admin/NormalisasiController">
+                    <i class="fa fa-files-o"></i>
+                    <span>Data Normalisasi Dan Rangking</span>
                 </a>
             </li>
         </ul>

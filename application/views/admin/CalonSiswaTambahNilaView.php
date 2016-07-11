@@ -7,37 +7,29 @@
     @Project Metode-WP
     @Package Expression package is undefined on line 8, column 16 in Templates/Scripting/EmptyPHPWebPage.php.
 -->
+
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Metode Saw</title>
-
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AdminLTE 2 | Dashboard</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <?php $this->load->view('admin/layout/CssLayout') ?>
 
     </head>
-    <body>
-
-        <div id="wrapper">
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
 
             <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <div id="page-wrapper">
+            <div class="content-wrapper" style="height: 650px">
+                <section class="content-header">
+                    <h1>
+                        Tambah Nilai Calon Siswa
+                    </h1>
+                </section>
 
-                <div class="container-fluid">
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">
-                                Tambah Nilai Calon Siswa
-                            </h1>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="glyphicon glyphicon-dashboard"></i> Tambah Nilai Calon Siswa
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-
+                <section class="content">
                     <div class="row">
                         <div class="col-lg-12">
                             <?php foreach ($calon_siswa_nilai as $c) { ?>
@@ -67,8 +59,10 @@
                             <?php } ?>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
+
+            <div class="control-sidebar-bg"></div>
         </div>
 
         <?php $this->load->view('admin/layout/JsLayout') ?>
