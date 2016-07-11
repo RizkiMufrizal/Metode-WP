@@ -21,7 +21,7 @@
 
             <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <div class="content-wrapper">
+            <div class="content-wrapper" style="height: 650px">
                 <section class="content-header">
                     <h1>
                         Dashboard
@@ -32,20 +32,17 @@
                 <section class="content">
 
                     <div class="row">
-                        test
+                        <div class="col-lg-12">
+                            <div class="jumbotron text-center">
+                                <h1>Selamat Datang Admin</h1>
+                                <p>Metode Saw</p>
+                            </div>
+                        </div>
                     </div>
 
                 </section>
 
             </div>
-
-            <footer class="main-footer">
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.3.5
-                </div>
-                <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-                reserved.
-            </footer>
 
             <div class="control-sidebar-bg"></div>
         </div>
