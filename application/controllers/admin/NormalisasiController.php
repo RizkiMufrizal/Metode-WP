@@ -1,25 +1,25 @@
 <?php
 
 /**
- * Author Rizki Mufrizal <mufrizalrizki@gmail.com>
- * Since Apr 22, 2016
- * Time 9:04:03 PM
+ *
+ * Author Rizki Mufrizal <mufrizalrizki@gmail.com> <https://RizkiMufrizal.github.io>
+ * Since Jul 11, 2016
+ * Time 4:48:16 PM
  * Encoding UTF-8
- * Project Metode-SAW
- * Package Expression package is undefined on line 14, column 14 in Templates/Scripting/PHPClass.php.
+ * Project Metode-WP
+ * Package Expression package is undefined on line 13, column 14 in Templates/Scripting/PHPClass.php.
+ *
  */
-class NormalisasiController extends CI_Controller
-{
-    public function __construct()
-    {
+class NormalisasiController extends CI_Controller {
+
+    public function __construct() {
         parent::__construct();
         $this->load->model('Normalisasi');
         $this->load->model('NilaiCalonSiswa');
         $this->load->model('Kriteria');
     }
 
-    public function index()
-    {
+    public function index() {
         $session = $this->session->userdata('isLogin');
 
         if ($session == false) {
@@ -30,8 +30,7 @@ class NormalisasiController extends CI_Controller
         }
     }
 
-    public function prosesNormalisasi()
-    {
+    public function prosesNormalisasi() {
 
         //jumlah calon siswa
         $jumlahCalonSiswaDenganNilai = $this->NilaiCalonSiswa->ambilJumlahNilaiCalonSiswa();
@@ -41,55 +40,63 @@ class NormalisasiController extends CI_Controller
 
         $nilaiCalonSiswa = $this->NilaiCalonSiswa->ambilNilaiCalonSiswaArray();
 
-        //hasil max setiap kriteria dalam bentuk array
-        $hasilMaxDariSetiapKriteria = array();
-
-        //hasil pembagian antara nilai kriteria dan nilai max kriteria
-        $nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria = array();
+        $jumlahTotalBobotSeluruhKriteria = 0;
 
         if ($jumlahCalonSiswaDenganNilai > 0) {
 
-            //mencari nilai max dari setiap kriteria
+            //mencari total bobot dari kriteria
             foreach ($kriteria as $k) {
-                $hasilMaxKriteria = $this->NilaiCalonSiswa->ambilNilaiMaxBerdasarkanKriteria($k->kriteria);
 
-                array_push($hasilMaxDariSetiapKriteria, array(
+                $jumlahTotalBobotSeluruhKriteria = $jumlahTotalBobotSeluruhKriteria + $k->bobot;
+            }
+
+            $kriteriaSementara = array();
+
+            foreach ($kriteria as $k) {
+                array_push($kriteriaSementara, array(
                     'kriteria' => $k->kriteria,
-                    'hasil' => $hasilMaxKriteria[0][$k->kriteria],
+                    'bobot' => $k->bobot / $jumlahTotalBobotSeluruhKriteria
                 ));
             }
+
+            $hasilSementaraVektor = array();
 
             //mencari nilai normalisasi karena faktor kriteria benefit berdasarkan nilai maksimal
             foreach ($nilaiCalonSiswa as $n) {
-                $c = array();
-                foreach ($hasilMaxDariSetiapKriteria as $hmdsk) {
-                    array_push($c, array(
-                        'kriteria' => $hmdsk['kriteria'],
-                        'hasil' => $n[$hmdsk['kriteria']] / $hmdsk['hasil'],
-                    ));
-                }
-                array_push($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria, array(
+                array_push($hasilSementaraVektor, array(
                     'nisn' => $n['nisn'],
-                    'nama' => $n['nama'],
-                    'hasil_akhir' => $c,
+                    'c1' => (pow($n['c1'], $kriteriaSementara[0]['bobot'])),
+                    'c2' => (pow($n['c2'], $kriteriaSementara[1]['bobot'])),
+                    'c3' => (pow($n['c3'], $kriteriaSementara[2]['bobot'])),
+                    'c4' => (pow($n['c4'], $kriteriaSementara[3]['bobot'])),
+                    'c5' => (pow($n['c5'], $kriteriaSementara[4]['bobot'])),
+                    'hasil' =>
+                    (pow($n['c1'], $kriteriaSementara[0]['bobot'])) *
+                    (pow($n['c2'], $kriteriaSementara[1]['bobot'])) *
+                    (pow($n['c3'], $kriteriaSementara[2]['bobot'])) *
+                    (pow($n['c4'], $kriteriaSementara[3]['bobot'])) *
+                    (pow($n['c5'], $kriteriaSementara[4]['bobot']))
                 ));
             }
+            //nilai seluruh vektor
+            $jumlahHasilSeluruhVektor = 0;
 
-            foreach ($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria as $n) {
-                if ($this->Normalisasi->ambilNormalisasiBerdasakanNisn($n['nisn']) == 0) {
+            foreach ($hasilSementaraVektor as $v) {
+                $jumlahHasilSeluruhVektor = $jumlahHasilSeluruhVektor + $v['hasil'];
+            }
+            //nilai akhir
+            foreach ($hasilSementaraVektor as $v) {
+
+                if ($this->Normalisasi->ambilNormalisasiBerdasakanNisn($v['nisn']) == 0) {
+
                     $val = array(
-                        'id_normalisasi' => $this->uuid->v4(),
-                        'nilai_c1' => ($n['hasil_akhir'][0]['hasil'] * $kriteria[0]->bobot),
-                        'nilai_c2' => ($n['hasil_akhir'][1]['hasil'] * $kriteria[1]->bobot),
-                        'nilai_c3' => ($n['hasil_akhir'][2]['hasil'] * $kriteria[2]->bobot),
-                        'nilai_c4' => ($n['hasil_akhir'][3]['hasil'] * $kriteria[3]->bobot),
-                        'nilai_c5' => ($n['hasil_akhir'][4]['hasil'] * $kriteria[4]->bobot),
-                        'total_nilai' => ($n['hasil_akhir'][0]['hasil'] * $kriteria[0]->bobot) +
-                        ($n['hasil_akhir'][1]['hasil'] * $kriteria[1]->bobot) +
-                        ($n['hasil_akhir'][2]['hasil'] * $kriteria[2]->bobot) +
-                        ($n['hasil_akhir'][3]['hasil'] * $kriteria[3]->bobot) +
-                        ($n['hasil_akhir'][4]['hasil'] * $kriteria[4]->bobot),
-                        'nisn' => $n['nisn'],
+                        'total_nilai' => $v['hasil'] / $jumlahHasilSeluruhVektor,
+                        'nisn' => $v['nisn'],
+                        'nilai_c1' => $v['c1'],
+                        'nilai_c2' => $v['c2'],
+                        'nilai_c3' => $v['c3'],
+                        'nilai_c4' => $v['c4'],
+                        'nilai_c5' => $v['c5']
                     );
 
                     $this->Normalisasi->tambahNormalisasi($val);
@@ -98,4 +105,5 @@ class NormalisasiController extends CI_Controller
         }
         redirect('admin/NormalisasiController');
     }
+
 }
