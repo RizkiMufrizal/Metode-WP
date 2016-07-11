@@ -22,7 +22,7 @@
 
             <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <div class="content-wrapper" style="height: 650px">
+            <div class="content-wrapper" style="min-height: 650px">
                 <section class="content-header">
                     <h1>
                         Dashboard
@@ -35,16 +35,16 @@
                     <div class="row">
                         <div class="col-lg-12">
 
-                            <table id="calonsiswa" class="table table-bordered table-hover table-striped">
+                            <table id="calonsiswa" class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>NISN</th>
                                         <th>Nama</th>
-                                        <th>Nilai Psikotes</th>
-                                        <th>Nilai PSM Test</th>
-                                        <th>Nilai Angket Siswa</th>
-                                        <th>Nilai UN</th>
+                                        <th>Nilai Peminatan</th>
+                                        <th>Nilai Hasil Pendekatan Psikotest</th>
+                                        <th>Nilai Placementtes</th>
                                         <th>Nilai Raport</th>
+                                        <th>Nilai UN</th>
                                     </tr>
                                 </thead>
                                 <tbody>
