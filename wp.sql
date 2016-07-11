@@ -71,8 +71,8 @@ CREATE TABLE tb_normalisasi(
 )ENGINE=INNODB;
 
 CREATE TABLE tb_user(
-    username VARCHAR(50) NOT NULL PRIMARY KEY,
-    password VARCHAR(50) NOT NULL
+    email VARCHAR(50) NOT NULL PRIMARY KEY,
+    password VARCHAR(150) NOT NULL
 )ENGINE=INNODB;
 
 CREATE VIEW `tb_calon_siswa_nilai` AS
