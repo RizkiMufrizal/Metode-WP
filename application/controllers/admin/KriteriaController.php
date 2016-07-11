@@ -1,12 +1,14 @@
 <?php
 
 /**
- * Author Rizki Mufrizal <mufrizalrizki@gmail.com>
- * Since Apr 21, 2016
- * Time 9:47:30 PM
+ *
+ * Author Rizki Mufrizal <mufrizalrizki@gmail.com> <https://RizkiMufrizal.github.io>
+ * Since Jul 11, 2016
+ * Time 4:48:16 PM
  * Encoding UTF-8
- * Project Metode-SAW
- * Package Expression package is undefined on line 14, column 14 in Templates/Scripting/PHPClass.php.
+ * Project Metode-WP
+ * Package Expression package is undefined on line 13, column 14 in Templates/Scripting/PHPClass.php.
+ *
  */
 class KriteriaController extends CI_Controller {
 
@@ -28,7 +30,6 @@ class KriteriaController extends CI_Controller {
 
     public function tambahKriteria() {
         $val = array(
-            'id_kriteria' => $this->uuid->v4(),
             'kriteria' => $this->input->post('kriteria'),
             'bobot' => $this->input->post('bobot'),
             'keterangan' => $this->input->post('keterangan'),
@@ -39,7 +40,7 @@ class KriteriaController extends CI_Controller {
 
     public function editKriteria($idKriteria) {
         $data['kriteria'] = $this->Kriteria->ambilKriteriaBerdasarkanId($idKriteria);
-        $this->load->view('admin/KriteriaTambahView', $data);
+        $this->load->view('admin/KriteriaEditView', $data);
     }
 
     public function updateKriteria() {
