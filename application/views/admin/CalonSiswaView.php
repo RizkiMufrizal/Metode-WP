@@ -22,7 +22,7 @@
 
             <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <div class="content-wrapper" style="height: 650px">
+            <div class="content-wrapper" style="min-height: 650px">
                 <section class="content-header">
                     <h1>
                         Dashboard
@@ -58,16 +58,17 @@
 
                             <p></p>
 
-                            <table id="calonsiswa" class="table table-bordered table-hover table-striped">
+                            <table id="calonsiswa" class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>NISN</th>
                                         <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
+                                        <th>Tempat Lahir</th>
                                         <th>Tanggal Lahir</th>
-                                        <th>Alamat</th>
-                                        <th>Asal Sekolah</th>
-                                        <th>Tahun Lulus</th>
+                                        <th>Nama Orang Tua</th>
+                                        <th>Pekerjaan Orang Tua</th>
+                                        <th>No Telepon</th>
+                                        <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -76,11 +77,12 @@
                                         <tr>
                                             <td><?php echo $s->nisn; ?></td>
                                             <td><?php echo $s->nama; ?></td>
-                                            <td><?php echo $s->jenis_kelamin; ?></td>
+                                            <td><?php echo $s->tempat_lahir; ?></td>
                                             <td><?php echo $s->tanggal_lahir; ?></td>
-                                            <td><?php echo $s->alamat; ?></td>
-                                            <td><?php echo $s->asal_sekolah; ?></td>
-                                            <td><?php echo $s->tahun_lulus; ?></td>
+                                            <td><?php echo $s->nama_orang_tua; ?></td>
+                                            <td><?php echo $s->pekerjaan_orang_tua; ?></td>
+                                            <td><?php echo $s->no_telepon; ?></td>
+                                            <td><?php echo $s->keterangan; ?></td>
                                             <td class="text-center">
                                                 <?php if ($s->status) { ?>
                                                     <button class="btn btn-success" disabled>Tambah Nilai</button>
@@ -123,24 +125,28 @@
                                 <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Anda">
                             </div>
                             <div class="form-group">
-                                <label>Jenis Kelamin</label>
-                                <input type="text" name="jenis_kelamin" class="form-control" placeholder="Masukkan Jenis Kelamin Anda">
+                                <label>Tempat Lahir</label>
+                                <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukkan Tempat Lahir Anda">
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Lahir</label>
                                 <input type="date" name="tanggal_lahir" class="form-control" placeholder="Masukkan Tanggal Lahir Anda">
                             </div>
                             <div class="form-group">
-                                <label>Alamat</label>
-                                <textarea name="alamat" class="form-control" placeholder="Masukkan Alamat Anda"></textarea>
+                                <label>Nama Orang Tua</label>
+                                <input type="text" name="nama_orang_tua" class="form-control" placeholder="Masukkan Nama Orang Tua Anda">
                             </div>
                             <div class="form-group">
-                                <label>Asal Sekolah</label>
-                                <input type="text" name="asal_sekolah" class="form-control" placeholder="Masukkan Asal Sekolah Anda">
+                                <label>Pekerjaan Orang Tua</label>
+                                <input type="text" name="pekerjaan_orang_tua" class="form-control" placeholder="Masukkan Pekerjaan Orang Tua Anda">
                             </div>
                             <div class="form-group">
-                                <label>Tahun Lulus</label>
-                                <input type="number" name="tahun_lulus" class="form-control" placeholder="Masukkan Tahun Lulus Anda">
+                                <label>No Telepon</label>
+                                <input type="text" name="no_telepon" class="form-control" placeholder="Masukkan No Telepon Anda">
+                            </div>
+                            <div class="form-group">
+                                <label>Keterangan</label>
+                                <input type="text" name="keterangan" class="form-control" placeholder="Masukkan Keterangan Anda">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Simpan</button>
