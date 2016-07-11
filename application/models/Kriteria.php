@@ -1,12 +1,14 @@
 <?php
 
 /**
- * Author Rizki Mufrizal <mufrizalrizki@gmail.com>
- * Since Apr 21, 2016
- * Time 9:46:01 PM
+ *
+ * Author Rizki Mufrizal <mufrizalrizki@gmail.com> <https://RizkiMufrizal.github.io>
+ * Since Jul 11, 2016
+ * Time 4:48:16 PM
  * Encoding UTF-8
- * Project Metode-SAW
- * Package Expression package is undefined on line 14, column 14 in Templates/Scripting/PHPClass.php.
+ * Project Metode-WP
+ * Package Expression package is undefined on line 13, column 14 in Templates/Scripting/PHPClass.php.
+ *
  */
 class Kriteria extends CI_Model
 {
