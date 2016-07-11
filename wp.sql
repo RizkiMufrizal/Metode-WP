@@ -64,7 +64,7 @@ CREATE TABLE tb_normalisasi(
 
 CREATE TABLE tb_user(
     email VARCHAR(50) NOT NULL PRIMARY KEY,
-    password VARCHAR(15) NOT NULL
+    password VARCHAR(150) NOT NULL
 )ENGINE=INNODB;
 
 CREATE VIEW `tb_calon_siswa_nilai` AS
@@ -100,3 +100,5 @@ FROM
   `tb_calon_siswa`
 INNER JOIN
   `tb_normalisasi` ON `tb_calon_siswa`.`nim` = `tb_normalisasi`.`nim`;
+
+INSERT INTO `tb_user` (`email`, `password`) VALUES ('admin@gmail.com', '$2a$06$4zliyvsxzOUndwPSM56GYe8LCTMqO.qFNBA6bm9kjjDuHosz7eLyC');
