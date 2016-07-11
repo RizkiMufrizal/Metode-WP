@@ -22,7 +22,7 @@
 
             <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <div class="content-wrapper" style="height: 650px">
+            <div class="content-wrapper" style="min-height: 650px">
                 <section class="content-header">
                     <h1>
                         Tambah Nilai Calon Siswa
