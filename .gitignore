@@ -21,3 +21,5 @@ application/logs/*
 *.stTheme.cache
 *.sublime-workspace
 *.sublime-project
+
+uploads/
