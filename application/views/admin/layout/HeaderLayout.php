@@ -92,6 +92,12 @@
                 </a>
             </li>
             <li class="treeview">
+                <a href="<?php echo base_url(); ?>index.php/admin/HimpunanController">
+                    <i class="fa fa-files-o"></i>
+                    <span>Data Himpunan</span>
+                </a>
+            </li>
+            <li class="treeview">
                 <a href="<?php echo base_url(); ?>index.php/admin/NilaiCalonSiswaController">
                     <i class="fa fa-files-o"></i>
                     <span>Data Nilai Calon Siswa</span>
