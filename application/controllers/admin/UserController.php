@@ -22,10 +22,10 @@ class UserController extends CI_Controller {
     }
 
     public function prosesLogin() {
-        $username = $this->input->post('username');
+        $email = $this->input->post('email');
         $password = $this->input->post('password');
 
-        $user = $this->User->ambilUserUntukLogin($username);
+        $user = $this->User->ambilUserUntukLogin($email);
 
         if (sizeof($user) == 0) {
             $error = array('error' => 'anda belum melakukan registrasi');
@@ -34,7 +34,7 @@ class UserController extends CI_Controller {
             if ($this->bcrypt->check_password($password, $user[0]->password)) {
                 $this->session->set_userdata(array(
                     'isLogin' => true,
-                    'username' => $username,
+                    'email' => $email,
                 ));
                 redirect('admin');
             } else {
