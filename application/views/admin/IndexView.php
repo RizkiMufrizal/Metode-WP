@@ -35,7 +35,7 @@
                         <div class="col-lg-12">
                             <div class="jumbotron text-center">
                                 <h1>Selamat Datang Admin</h1>
-                                <p>Metode Saw</p>
+                                <p>Metode WP</p>
                             </div>
                         </div>
                     </div>
