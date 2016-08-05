@@ -46,6 +46,9 @@
                             <a href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li>
+                            <a href="<?php echo base_url(); ?>index.php/IndexController/pengumuman">Pengumuman</a>
+                        </li>
+                        <li>
                             <a href="<?php echo base_url(); ?>index.php/admin/login">Login</a>
                         </li>
                     </ul> 
