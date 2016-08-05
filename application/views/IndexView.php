@@ -46,15 +46,11 @@
                 <table id="normalisasi" class="table table-bordered table-hover table-striped">
                     <thead>
                         <tr>
-                            <th>NISN</th>
-                            <th>Nama</th>
-                            <th>Nilai Peminatan</th>
-                            <th>Nilai Hasil Pendekatan Psikotest</th>
-                            <th>Nilai Placementtes</th>
-                            <th>Nilai Raport</th>
-                            <th>Nilai UN</th>
-                            <th>Total Nilai</th>
                             <th>Rangking</th>
+                            <th>Nama Peserta Didik</th>
+                            <th>NISN</th>
+                            <th>Jurusan</th>
+                            <th style="display: none">Total Nilai</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,15 +58,17 @@
                         foreach ($normalisasi as $n) {
                             ++$i; ?>
                             <tr>
-                                <td><?php echo $n->nisn; ?></td>
-                                <td><?php echo $n->nama; ?></td>
-                                <td><?php echo $n->nilai_c1; ?></td>
-                                <td><?php echo $n->nilai_c2; ?></td>
-                                <td><?php echo $n->nilai_c3; ?></td>
-                                <td><?php echo $n->nilai_c4; ?></td>
-                                <td><?php echo $n->nilai_c5; ?></td>
-                                <td><?php echo $n->total_nilai; ?></td>
                                 <td><?php echo $i; ?></td>
+                                <td><?php echo $n->nama; ?></td>
+                                <td><?php echo $n->nisn; ?></td>
+                                <td>
+                                    <?php if($i > 20) { ?>
+                                        <?php echo 'IPS'; ?>
+                                    <?php }else{ ?>
+                                        <?php echo 'IPA'; ?>
+                                    <?php } ?>
+                                </td>
+                                <td style="display: none"><?php echo $n->total_nilai; ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -85,7 +83,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#normalisasi').DataTable({
-                    'order': [[7, 'desc']]
+                    'order': [[4, 'desc']]
                 });
             });
         </script>
