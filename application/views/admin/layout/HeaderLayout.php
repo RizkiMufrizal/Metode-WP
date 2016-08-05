@@ -38,7 +38,7 @@
                 <img src="<?php echo base_url(); ?>assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>Meity Yuliasari</p>
 
             </div>
         </div>
@@ -57,8 +57,8 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">                            
                 <a href="<?php echo base_url(); ?>index.php/admin">
-                    <i class="fa fa-dashboard"></i>
-                    <span>Dashboard</span>
+                    <i class="fa fa-home"></i>
+                    <span>Home</span>
                 </a>
             </li>
             <li class="treeview">

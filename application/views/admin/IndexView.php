@@ -24,8 +24,7 @@
             <div class="content-wrapper" style="min-height: 650px">
                 <section class="content-header">
                     <h1>
-                        Dashboard
-                        <small>Control panel</small>
+                        Home
                     </h1>
                 </section>
 
@@ -34,8 +33,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="jumbotron text-center">
-                                <h1>Selamat Datang Admin</h1>
-                                <p>Metode WP</p>
+                                <h1>Selamat Datang</h1>
+                                <p>SMA NEGERI 51 JAKARTA</p>
                             </div>
                         </div>
                     </div>

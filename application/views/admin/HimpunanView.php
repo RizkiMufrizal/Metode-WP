@@ -24,8 +24,7 @@
             <div class="content-wrapper" style="min-height: 650px">
                 <section class="content-header">
                     <h1>
-                        Dashboard
-                        <small>Control panel</small>
+                        Data Himpunan
                     </h1>
                 </section>
 
