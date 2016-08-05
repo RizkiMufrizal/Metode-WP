@@ -10,8 +10,12 @@ class IndexController extends CI_Controller {
     }
 
     public function index() {
+        $this->load->view('IndexView');
+    }
+
+    public function pengumuman() {
         $data['normalisasi'] = $this->Normalisasi->ambilNormalisasi();
-        $this->load->view('IndexView', $data);
+        $this->load->view('PengumumanView', $data);
     }
 
 }
